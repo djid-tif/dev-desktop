@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "lexer.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -10,6 +11,7 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    Lexer* m_lexer = nullptr;
 
 public:
     MainWindow(QWidget *parent = nullptr);
