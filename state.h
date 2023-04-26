@@ -15,15 +15,11 @@ public:
     State(QString stateName = "UNKNOWN"): _stateName(stateName){
 
         _id = _currentIndex;
-        qDebug()<< __FUNCTION__ << _id;
         _currentIndex++;
     }
 
     bool operator == ( const State& st1) {
-        qDebug() << __FUNCTION__ << st1._id << _id;
-        qDebug() << __FUNCTION__ << st1.stateName() << stateName();
-
-       return st1._id == _id;
+       return st1._stateName == _stateName;
     }
 
 

@@ -7,14 +7,13 @@
 
 class Lexer
 {
-    //Q_OBJECT
     QString m_prompt;
     QStringList m_tokens;
     QString m_currentToken;
     QMap<QString,QStringList> m_dialectMap;
     Fsm *fsm;
 public:
-    Lexer();
+    Lexer(Fsm *fsm);
     QString prompt() const;
     void setPrompt(const QString &newPrompt);
     static QStringList stringToList(QString line);

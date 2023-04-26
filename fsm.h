@@ -8,16 +8,21 @@ class Fsm
 {
 
     State _currentState;
+    State UNKNOWN;
+    State START;
+    State CMD;
+    State CRUD;
+    State ErrCMD;
+    State CRUDCMD;
+    State ErrCRUDCMD;
 
 public:
     Fsm();
-    virtual void run()=0;
+    void run(QStringList tokens);
 
-
+    bool IsCommand(QString token);
     bool checkState(State& src, const State& target, bool cond, FsmFn callback){
-        qDebug() << __FUNCTION__ << _currentState.stateName() << _currentState.id();
         if (src == _currentState && cond) {
-            qDebug() << _currentState.stateName();
             _currentState = target;
             if (callback != nullptr) {
                 callback();
